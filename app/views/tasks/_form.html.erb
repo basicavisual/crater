@@ -1,0 +1,13 @@
+<%= form_with(model: [ @project, @project.tasks.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :deadline %><br>
+    <%= form.date_select :deadline, {:include_blank => true, :default => nil} %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
