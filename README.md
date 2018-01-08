@@ -1,24 +1,26 @@
-# README
+# Crater
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Crater is a To Do list app to stay organized, it contains these features:
 
-Things you may want to cover:
+- User authentication
+  - omniauth via facebook (pending)
+- Create/edit/delete projects
+- Add tasks to projects and:
+  - Edit, update and delete your tasks
+  - Set a deadline
+  - Priotitize your tasks (pending)
+  - Complete your tasks
+- Add comments / attachments to tasks (pending)
+  - Edit, update and delete your comments
 
-* Ruby version
 
-* System dependencies
+### Technical bits
 
-* Configuration
+Runs on Rails 5.1.1 / ruby 2.3.3
 
-* Database creation
+`bundle install`
+`rails db:setup && rails db:migrate`
 
-* Database initialization
+### This is a work in progress
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Check the issues for more info.
