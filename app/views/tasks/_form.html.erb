@@ -1,6 +1,6 @@
-<%= form_with(model: [ @project, @project.tasks.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :name %><br>
+
+<%= form_with(model: [@project, task]) do |form| %>
+  <p><%= form.label :name %><br>
     <%= form.text_field :name %>
   </p>
   <p>

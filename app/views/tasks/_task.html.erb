@@ -1,2 +1,2 @@
-<p><%= task.name %></p>
-<p><%= task.deadline %></p>
+<p><%= task.name %> | <%= task.deadline %> | <%= link_to 'Edit', edit_project_task_path(@project, task.id) %> | <%= link_to 'Destroy', project_task_path(@project, task.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<p></p>
