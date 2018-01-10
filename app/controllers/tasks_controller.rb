@@ -1,10 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_project
-  # before_action :set_task, except: [:create]
-
-  def index
-    @tasks = @project.tasks.all
-  end
+  before_action :set_task, except: [:index, :new, :create]
 
   def show
     @task = set_task
@@ -16,7 +12,6 @@ class TasksController < ApplicationController
 
   def edit
 
-    @task = @project.tasks.find(params[:id])
   end
 
   def create
@@ -30,9 +25,8 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task = @project.tasks.find(params[:id])
       if @task.update(task_params)
-        redirect_to @project, notice: 'Task was successfully updated.'
+        redirect_to project_task_path(@project, @task), notice: 'Task was successfully updated.'
       else
         render :edit
       end
