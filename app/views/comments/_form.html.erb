@@ -1,10 +1,10 @@
-<%= form_with(model: [@project, @task, comment]) do |form| %>
+<%= form_with(model: [@project, @task, comment], multipart: true) do |form| %>
   <p><%= form.label :content %><br>
     <%= form.text_field :content %>
   </p>
   <p>
     <%= form.label :attachment %><br>
-    <%= form.text_field :attachment %>
+    <%= form.file_field :attachment %>
   </p>
   <p>
     <%= form.submit %>

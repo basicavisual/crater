@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
+
   before_action :set_task
   before_action :set_comment, except: [:index, :new, :create]
+  
 
   def show
     @task = set_task

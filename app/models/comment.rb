@@ -1,4 +1,5 @@
 class Comment < ApplicationRecord
+  attr_accessor :attachment
   belongs_to :task
-  has_many :comments
+  mount_uploader :attachment, AttachmentUploader
 end
