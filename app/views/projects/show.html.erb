@@ -10,7 +10,10 @@
 
 
 <div id="tasks_wrapper">
-  <%= render @project.tasks %>
+
+    <%= render template: "tasks/index" %>
+
+
   <div id="form">
     <%= render "tasks/form", task: @project.tasks.build %>
   </div>
