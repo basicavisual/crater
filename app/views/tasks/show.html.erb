@@ -1,8 +1,12 @@
 <h1>Task <%= @task.name %></h1>
+
+<% if @task.priority == true %>
+this is a priority
+<% end %>
 <%= link_to 'Edit', edit_project_task_path(@project, @task) %>
 
 <div id="comments_wrapper">
-  <%= render @task.comments %>
+  <%= render template: "comments/index", locals: { comments: @comments }  %>
   <div id="form">
     <%= render "comments/form", comment: @task.comments.build %>
   </div>

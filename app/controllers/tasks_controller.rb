@@ -3,12 +3,13 @@ class TasksController < ApplicationController
   before_action :set_task, except: [:index, :new, :create]
 
   def index
-    @tasks = @project.tasks.all
+    @tasks = @project.tasks.all.order(priority: :desc)
     @completed = @tasks.completed
   end
 
   def show
     @task = set_task
+    @comments = @task.comments.all
   end
 
   def new
@@ -62,6 +63,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :deadline, :project_id)
+    params.require(:task).permit(:name, :deadline, :project_id, :priority)
   end
 end

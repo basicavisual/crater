@@ -11,7 +11,7 @@
 
 <div id="tasks_wrapper">
 
-    <%= render template: "tasks/index" %>
+    <%= render template: "tasks/index", locals: { tasks: @tasks, completed: @completed } %>
 
 
   <div id="form">

@@ -1,22 +1,23 @@
 
 
-<% @completed.each do |completed| %>
-hello <%= completed.name %>
+<% @tasks.each do |task| %>
+<p>
+  <% if task.completed == nil %>
+    <%= task.name %>
+    <%= ' | ' + task.deadline.to_s + ' | ' unless task.deadline.nil? %>
+    <%= link_to 'Mark as complete', complete_project_task_path(@project, task), method: :patch %> |
+    <%= link_to 'Details...', project_task_path(@project, task) %> |
+    <%= link_to 'Destroy', project_task_path(@project, task.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</p>
 <% end %>
 
 
-<% @tasks.each do |task| %>
+<% @completed.each do |completed| %>
 <p>
-  <% if task.completed %>
-  <strike><%= task.name %></strike>
-  <%= ' | ' + task.deadline.to_s + ' | ' unless task.deadline.nil? %>
-  <%= link_to 'Details...', project_task_path(@project, task) %> |
-  <%= link_to 'Destroy', project_task_path(@project, task.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% else %>
-  <%= ' | ' + task.deadline.to_s + ' | ' unless task.deadline.nil? %>
-  <%= link_to 'Mark as complete', complete_project_task_path(@project, task), method: :patch %> |
-  <%= link_to 'Details...', project_task_path(@project, task) %> |
-  <%= link_to 'Destroy', project_task_path(@project, task.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
+  <strike style="opacity: .5"><%= completed.name %></strike>
+  <%= ' | ' + completed.deadline.to_s + ' | ' unless completed.deadline.nil? %>
+  <%= link_to 'Details...', project_task_path(@project, completed) %> |
+  <%= link_to 'Destroy', project_task_path(@project, completed.id), method: :delete, data: { confirm: 'Are you sure?' } %>
 </p>
 <% end %>

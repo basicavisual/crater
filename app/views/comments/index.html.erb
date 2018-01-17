@@ -1,0 +1,4 @@
+<% @comments.each do |comment| %>
+<p><%= comment.content %> |
+  <% unless comment.attachment.file == nil %><a href="<%= comment.attachment %>" target="_blank"><%= comment.attachment.file.filename %></a><% end %> | <%= link_to 'Edit', edit_project_task_comment_path(@task, comment) %> | <%= link_to 'Destroy', project_task_comment_path(@project, @task, comment.id), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<% end %>

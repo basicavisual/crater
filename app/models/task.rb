@@ -3,5 +3,6 @@ class Task < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   scope :completed, -> { where.not( completed: nil ) }
-  scope :priority, -> { where( priority: true ) }
+  scope :priority, -> { order(priority: :desc) }
+
 end

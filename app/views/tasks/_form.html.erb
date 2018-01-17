@@ -8,6 +8,10 @@
     <%= form.date_select :deadline, {:include_blank => true, :default => nil} %>
   </p>
   <p>
+    <%= form.label :priority %><br>
+    <%= form.check_box :priority %>
+  </p>
+  <p>
     <%= form.submit %>
   </p>
 <% end %>
